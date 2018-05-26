@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/resume.css">
     <link rel="stylesheet" href="css/editable-span.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signUp.css">
 </head>
 <body>
 <div class="page" id="app">
@@ -121,8 +122,41 @@
             </section>
         </div>
     </main>
-    <div>
-        登陆
+    <div v-show="loginVisible" class="login">
+        <form action="" class="form">
+            <h2>登陆</h2>
+            <button @click="loginVisible = false">关闭</button>
+            <div class="row">
+                <label for="">邮箱</label>
+                <input type="text">
+            </div>
+            <div class="row">
+                <label for="">密码</label>
+                <input type="password">
+            </div>
+            <div class="actions">
+                <button>提交</button>
+                <a href="#" @click="signUpVisible = true; loginVisible = false;">注册</a>
+            </div>
+        </form>
+    </div>
+    <div v-show="signUpVisible" class="signUp">
+        <form action="" class="form">
+            <h2>注册</h2>
+            <button @click="signUpVisible = false">关闭</button>
+            <div class="row">
+                <label for="">邮箱</label>
+                <input type="text">
+            </div>
+            <div class="row">
+                <label for="">密码</label>
+                <input type="password">
+            </div>
+            <div class="actions">
+                <button>提交</button>
+                <a href="#" @click="signUpVisible = false; loginVisible = true;">登陆</a>
+            </div>
+        </form>
     </div>
 </div>
 
