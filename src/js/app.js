@@ -24,12 +24,18 @@ let app = new Vue({
                 {name: '请填写技能名称',description: '请填写描述'},
                 {name: '请填写技能名称',description: '请填写描述'},
                 {name: '请填写技能名称',description: '请填写描述'}
+            ],
+            projects:[
+                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
+                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
             ]
         },
         signUp: {
             email: '',
             password: ''
-        }
+        },
+        shareLink: 'none',
+        shareVisible: false
     },
     methods: {
         onEdit(key, value) {
@@ -131,12 +137,21 @@ let app = new Vue({
         },
         removeSkill(index){
             this.resume.skills.splice(index,1)
-        }
+        },
+        addProject(){
+            this.resume.projects.push(
+                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
+            );
+        },
+        removeProject(index){
+            this.resume.projects.splice(index,1)
+        },
     }
 });
 
-let currentUser = AV.User.current()
+let currentUser = AV.User.current();
 if(currentUser){
-    app.currentUser = currentUser.toJSON()
+    app.currentUser = currentUser.toJSON();
     app.getResume();
+    app.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
 }
