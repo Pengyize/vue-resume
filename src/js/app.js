@@ -18,7 +18,13 @@ let app = new Vue({
             birthday: '1996年5月25',
             jobTitle: '前端工程师',
             phone: '123456789',
-            email: '123@qq.com'
+            email: '123@qq.com',
+            skills:[
+                {name: '请填写技能名称',description: '请填写描述'},
+                {name: '请填写技能名称',description: '请填写描述'},
+                {name: '请填写技能名称',description: '请填写描述'},
+                {name: '请填写技能名称',description: '请填写描述'}
+            ]
         },
         signUp: {
             email: '',
@@ -27,8 +33,25 @@ let app = new Vue({
     },
     methods: {
         onEdit(key, value) {
-            this.resume[key] = value;
-            console.log('app', app.resume);
+            // this.resume[key] = value;
+            let regex = /\[(\d+)\]/g
+            key = key.replace(regex, (match, number)=> `.${number}`)
+            let keys = key.split('.')
+            let result = this.resume;
+            for(let i=0;i<keys.length;i++){
+                if(i === keys.length -1){
+                    result[keys[i]] = value;
+                }else{
+                    result = result[keys[i]];
+                }
+                //result = this.resume
+                //keys = ['skills', '0', 'name']
+                //i=0 result === result['skills'] === this.resume.skills
+                //i=1 result === result['0'] === this.resume.skills.0
+                //i=2 result === result['name'] === this.resume.skills.0.name
+                //result === this.resume['skills']['0']['name']
+            }
+
         },
         hasLogin(){
             return !!this.currentUser.objectId
@@ -98,11 +121,16 @@ let app = new Vue({
         getResume(){
             let query = new AV.Query('User');
             query.get(this.currentUser.objectId).then((user) => {
-                this.resume = user.toJSON().resume;
-                console.log(this.resume)
+                Object.assign(this.resume, user.toJSON().resume)
             }, (error) => {
                 // 异常处理
             });
+        },
+        addSkill(){
+            this.resume.skills.push({name:'请填写技能名称', description:'请填写描述'});
+        },
+        removeSkill(index){
+            this.resume.skills.splice(index,1)
         }
     }
 });
