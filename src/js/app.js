@@ -4,6 +4,10 @@ let app = new Vue({
         editingName: false,
         loginVisible: false,
         signUpVisible: false,
+        currentUser: {
+            objectId: undefined,
+            email: ''
+        },
         login: {
             email: '',
             password: ''
@@ -26,9 +30,17 @@ let app = new Vue({
             this.resume[key] = value;
             console.log('app', app.resume);
         },
+        hasLogin(){
+            return !!this.currentUser.objectId
+        },
         onLogin(){
-            AV.User.logIn(this.login.email, this.login.password).then(function (user) {
-                console.log(user);
+            AV.User.logIn(this.login.email, this.login.password).then((user) =>{
+                user = user.toJSON()
+                this.currentUser={
+                    objectId: user.objectId,
+                    email: user.email
+                }
+                this.loginVisible = false
             }, function (error) {
                 if(error.code === 211){
                     alert('邮箱不存在')
@@ -45,9 +57,16 @@ let app = new Vue({
             user.setPassword(this.signUp.password);
             // 设置邮箱
             user.setEmail(this.signUp.email);
-            user.signUp().then(function (loggedInUser) {
-                console.log(loggedInUser);
+            user.signUp().then((user) =>{
+                alert('注册成功')
+                user = user.toJSON()
+                this.currentUser={
+                    objectId: user.objectId,
+                    email: user.email
+                }
+                this.signUpVisible = false
             }, function (error) {
+                alert(error.rawMessage)
             });
         },
         onClickSave() {
@@ -60,18 +79,36 @@ let app = new Vue({
             }
         },
         saveResume(){
-            let {id} = AV.User.current()
-            let user = AV.Object.createWithoutData('User', id);
+            let {objectId} = AV.User.current().toJSON()
+            let user = AV.Object.createWithoutData('User', objectId);
             // 修改属性
             user.set('resume', this.resume);
             // 保存到云端
-            user.save();
+            user.save().then(()=>{
+                alert('保存成功')
+            },()=>{
+                alert('保存失败')
+            });
         },
         onLogOut(){
             AV.User.logOut();
             alert('注销成功')
             window.location.reload()
+        },
+        getResume(){
+            let query = new AV.Query('User');
+            query.get(this.currentUser.objectId).then((user) => {
+                this.resume = user.toJSON().resume;
+                console.log(this.resume)
+            }, (error) => {
+                // 异常处理
+            });
         }
-
     }
 });
+
+let currentUser = AV.User.current()
+if(currentUser){
+    app.currentUser = currentUser.toJSON()
+    app.getResume();
+}

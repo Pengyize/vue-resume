@@ -14,6 +14,7 @@
     <aside>
         <div class="upper">
             <ul class="actions">
+
                 <li>            <button class="button" @click="onClickSave">保存</button>
                 </li>
                 <li>            <button class="button">分享</button>
@@ -25,11 +26,13 @@
             </ul>
         </div>
         <div class="down">
-            <button class="button" @click="onLogOut">登出</button>
+            <button class="button" @click="onLogOut" v-show="hasLogin()" >登出</button>
         </div>
     </aside>
     <main>
         <div class="resume">
+            {{currentUser.objectId}}
+
             <section class="profile">
                 <h1>
                     <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
@@ -139,7 +142,7 @@
                 <a href="#" @click="signUpVisible = true; loginVisible = false;">注册</a>
             </div>
         </form>
-    </di>
+    </div>
     <div v-show="signUpVisible" class="signUp" v-cloak>
         <form action="" class="form" @submit.prevent="onSignUp">
             <h2>注册</h2>
