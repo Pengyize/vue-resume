@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="196fc94f-361d-4b35-bbaa-e6f1eb1754bc" name="Default" comment="添加 登陆获取用户信息 功能">
+    <list default="true" id="196fc94f-361d-4b35-bbaa-e6f1eb1754bc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -194,7 +192,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527160684220</updated>
-      <workItem from="1527160685380" duration="32063000" />
+      <workItem from="1527160685380" duration="32100000" />
     </task>
     <task id="LOCAL-00001" summary="添加登陆注册框">
       <created>1527324451153</created>
@@ -217,11 +215,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527334618163</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加 登陆获取用户信息 功能">
+      <created>1527393303884</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527393303884</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32063000" />
+    <option name="totallyTimeSpent" value="32100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="1440" height="877" extended-state="6" />
