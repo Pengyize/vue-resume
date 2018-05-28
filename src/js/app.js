@@ -1,6 +1,12 @@
 let app = new Vue({
     el: '#app',
     data: {
+        previewUser: {
+            objectId: undefined
+        },
+        previewResume: {
+
+        },
         editingName: false,
         loginVisible: false,
         signUpVisible: false,
@@ -35,7 +41,20 @@ let app = new Vue({
             password: ''
         },
         shareLink: 'none',
-        shareVisible: false
+        shareVisible: false,
+        mode: 'edit'    //  'preview'
+    },
+    watch: {
+        'currentUser.objectId': function (newValue) {
+            if(newValue){
+                this.getResume(this.currentUser)
+            }
+        }
+    },
+    computed: {
+        displayResume(){
+            return this.mode === 'preview' ? this.previewResume : this.resume
+        }
     },
     methods: {
         onEdit(key, value) {
@@ -70,6 +89,7 @@ let app = new Vue({
                     email: user.email
                 }
                 this.loginVisible = false
+                window.location.reload()
             }, function (error) {
                 if(error.code === 211){
                     alert('邮箱不存在')
@@ -124,10 +144,11 @@ let app = new Vue({
             alert('注销成功')
             window.location.reload()
         },
-        getResume(){
+        getResume(user){
             let query = new AV.Query('User');
-            query.get(this.currentUser.objectId).then((user) => {
-                Object.assign(this.resume, user.toJSON().resume)
+            return query.get(user.objectId).then((user) => {
+                let resume = user.toJSON().resume
+                return resume;
             }, (error) => {
                 // 异常处理
             });
@@ -146,12 +167,34 @@ let app = new Vue({
         removeProject(index){
             this.resume.projects.splice(index,1)
         },
+        print(){
+            window.print()
+        }
     }
 });
 
+// 获取当前用户的id
 let currentUser = AV.User.current();
 if(currentUser){
     app.currentUser = currentUser.toJSON();
-    app.getResume();
     app.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
+    app.getResume(app.currentUser).then((resume)=>{
+        app.resume = resume
+    })
+
 }
+
+// 获取预览用户的id
+let search = location.search
+let regex = /user_id=([^&]+)/
+let matches = search.match(regex)
+let userId;
+if(matches){
+    userId = matches[1]
+    app.mode = 'preview'
+    app.getResume({objectId: userId}).then((resume)=>{
+        app.previewResume = resume
+    });
+
+}
+
