@@ -6,9 +6,9 @@
     padding: 20px;
 }
 
-.skills > .remove,
-.projects > .remove,
-.projects > .remove,
-.skills > .add{
+.skills > ul > li > .remove,
+.projects > ol > li > .remove,
+.projects > ol > .add,
+.skills > ul > .add{
     display: none;
 }

@@ -8,10 +8,10 @@ button{
 
 div[v-cloak]{display: none}
 
-@media (min-width: 500px) {
+/*@media (min-width: 500px) {*/
     .page{height: 100vh; overflow: hidden;
         display: flex}
-}
+/*}*/
 .page{}
 .page > aside{
     width: 100px;
@@ -41,4 +41,4 @@ div[v-cloak]{display: none}
     padding: 3px 6px;
 }
 
-
+.exitPreview{position: fixed;top: 20px;left: 20px;}
