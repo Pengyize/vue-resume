@@ -128,6 +128,14 @@ window.App = {
             return this.mode === 'preview' ? this.previewResume : this.resume
         }
     },
+    watch: {
+        'currentUser.objectId': function (newValue) {
+            if(newValue){
+                this.getResume(this.currentUser).then((resume)=>{this.resume = resume})
+                this.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
+            }
+        }
+    },
 }
 
 Vue.component('app',App)

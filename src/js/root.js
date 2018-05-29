@@ -21,19 +21,8 @@ const root = new Vue({
 // let app = new Vue({
 //     el: '#app',
 //     data: {
-//         mode: 'edit'
 //     },
-    // watch: {
-    //     'currentUser.objectId': function (newValue) {
-    //         if(newValue){
-    //             this.getResume(this.currentUser).then((resume)=>{this.resume = resume})
-    //             this.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
-    //         }
-    //     }
-    // },
-
 //     methods: {
-//
 //     }
 // });
 //
@@ -44,9 +33,7 @@ const root = new Vue({
 //     app.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
 //     app.getResume(app.currentUser).then((resume)=>{
 //         app.resume = resume
-//
 //     })
-//
 // }
 //
 // // 获取预览用户的id
@@ -60,6 +47,5 @@ const root = new Vue({
 //     app.getResume({objectId: userId}).then((resume)=>{
 //         app.previewResume = resume
 //     });
-//
 // }
 
