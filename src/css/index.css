@@ -8,12 +8,12 @@ button{
 
 div[v-cloak]{display: none}
 
-/*@media (min-width: 500px) {*/
-    .page{height: 100vh; overflow: hidden;
+@media (min-width: 500px) {
+    .page > div{height: 100vh; overflow: hidden;
         display: flex}
-/*}*/
+}
 .page{}
-.page > aside{
+.page > div > aside{
     width: 100px;
     border-right: 1px solid #ddd;
     display: flex;
@@ -23,17 +23,17 @@ div[v-cloak]{display: none}
     flex-shrink: 0;
     box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
 }
-.page > aside > .upper > .actions > li{
+.page > div > aside > .upper > .actions > li{
     margin: 20px;
 }
-.page > aside > .upper{
+.page > div > aside > .upper{
     display: flex;
     flex-direction: column;
 }
-.page > aside > .down{
+.page > div > aside > .down{
     padding: 20px 0;
 }
-.page > main{
+.page > div > main{
     flex-grow: 1;
     overflow: auto;
 }
