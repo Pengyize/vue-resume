@@ -1,4 +1,4 @@
-.page > aside{
+.page > .container > aside{
     display: none;
 }
 

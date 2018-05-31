@@ -19,10 +19,10 @@ const root = new Vue({
             resume: {
                 name: '姓名',
                 gender: '女',
-                birthday: '1996年5月25',
+                birthday: '18',
                 jobTitle: '前端工程师',
-                phone: '123456789',
-                email: '123@qq.com',
+                phone: '13767676767',
+                email: 'example@mail.com',
                 skills: [
                     {name: '请填写技能名称', description: '请填写描述'},
                     {name: '请填写技能名称', description: '请填写描述'},
@@ -35,9 +35,25 @@ const root = new Vue({
                 ]
             },
             previewResume: {},
+            skinPickerVisible: false,
+            logoutVisible: false
         }
     },
     methods: {
+        onShare(){
+            if(this.hasLogin()){
+                if(this.shareVisible === false){
+                    this.shareVisible = true
+                }else{
+                    this.shareVisible = false
+                }
+            }else{
+                alert('请先登陆')
+            }
+        },
+        hasLogin(){
+            return !!this.currentUser.objectId
+        },
         getResume(user){
             let query = new AV.Query('User');
             return query.get(user.objectId).then((user) => {
@@ -48,12 +64,69 @@ const root = new Vue({
             });
         },
         onLogin(user){
+            console.log('user',user)
             this.currentUser.objectId = user.objectId;
             this.currentUser.email = user.email;
-            alert('登陆成功')
+            this.shareLink = location.origin + location.pathname + '?user_id=' +this.currentUser.objectId
+            this.getResume(this.currentUser).then((resume)=>{this.resume = resume})
             this.$router.push('/')
+            this.logoutVisible = true;
         },
+        changeSkin(){
+            console.log(this.skinPickerVisible)
+            if(this.skinPickerVisible === false){
 
+                this.skinPickerVisible = true
+            }else{
+                this.skinPickerVisible = false
+            }
+        },
+        onSignUp(newUser){
+            let user = AV.Object.createWithoutData('User', newUser.objectId);
+            // 修改属性
+            user.set('resume', this.resume);
+            // 保存到云端
+            user.save().then((sth)=>{
+                console.log('保存成功')
+            },()=>{
+            });
+            this.$router.push('/login')
+        },
+        onClickSave() {
+            let currentUser = AV.User.current();
+            if (!currentUser) {
+                alert('请先登陆')
+            }
+            else {
+                this.saveResume()
+            }
+        },
+        saveResume(){
+            let {objectId} = AV.User.current().toJSON()
+            let user = AV.Object.createWithoutData('User', objectId);
+            // 修改属性
+            user.set('resume', this.resume);
+            // 保存到云端
+            user.save().then(()=>{
+                alert('保存成功')
+            },()=>{
+                alert('保存失败')
+            });
+        },
+        onLogOut(){
+            AV.User.logOut();
+            window.location.reload()
+            this.logoutvisible = false
+            alert('注销成功')
+        },
+    },
+    watch: {    //牛逼，监听
+        'currentUser.objectId': function (newValue) {
+            if(newValue){
+                this.getResume(this.currentUser).then((resume)=>{this.resume = resume})
+                this.shareLink = location.origin + location.pathname + '?user_id=' +this.currentUser.objectId
+            }
+        }
     },
     computed: {
         displayResume(){
@@ -71,6 +144,7 @@ if(currentUser){
     root.getResume(root.currentUser).then((resume)=>{
         root.resume = resume
     })
+    root.logoutVisible = true;
 }
 
 

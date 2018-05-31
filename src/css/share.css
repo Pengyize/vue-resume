@@ -1,5 +1,5 @@
 .share{
-    position: fixed;
+    position: absolute;
     min-width: 300px;
     transform: translate(-50%,-50%);
     top: 50%;
@@ -8,8 +8,10 @@
     box-shadow: 0 0 0 1000px rgba(0,0,0,.5);
     padding: 30px;
 }
+
 .share textarea{
     min-width: 400px;
     resize: none;
+    height: 100px;
     word-break: break-all;
 }

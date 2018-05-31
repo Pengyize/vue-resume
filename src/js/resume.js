@@ -1,5 +1,5 @@
 Vue.component('resume',{
-    props:['mode','displayresume','id', 'resume'],
+    props:['mode','displayresume', 'resume'],
     data(){
         return{
         }
@@ -43,21 +43,21 @@ Vue.component('resume',{
     },
     template:`
     <div class="resume">
-    {{id}} 我是mode：{{mode}}
             <section class="profile">
                 <h1>
                     <editable-span :disabled="mode === 'preview'"  :value="displayresume.name" @edit="onEdit('name',$event)"></editable-span>
                 </h1>
 
                 <p>应聘职位：<editable-span :disabled="mode === 'preview'"  :value="displayresume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span></p>
+                
                 <p class="profile">
-                    <editable-span :disabled="mode === 'preview'"  :value="displayresume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
+                    年龄：<editable-span :disabled="mode === 'preview'"  :value="displayresume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
                     |
-                    <editable-span :disabled="mode === 'preview'"  :value="displayresume.gender" @edit="onEdit('gender',$event)"></editable-span>
+                    性别：<editable-span :disabled="mode === 'preview'"  :value="displayresume.gender" @edit="onEdit('gender',$event)"></editable-span>
                     |
-                    <editable-span :disabled="mode === 'preview'"  :value="displayresume.email" @edit="onEdit('email',$event)"></editable-span>
+                    邮箱：<editable-span :disabled="mode === 'preview'"  :value="displayresume.email" @edit="onEdit('email',$event)"></editable-span>
                     |
-                    <editable-span :disabled="mode === 'preview'"  :value="displayresume.phone" @edit="onEdit('phone',$event)"></editable-span>
+                    手机：<editable-span :disabled="mode === 'preview'"  :value="displayresume.phone" @edit="onEdit('phone',$event)"></editable-span>
                 </p>
             </section>
             <section class="skills">

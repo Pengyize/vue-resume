@@ -1,0 +1,51 @@
+
+aside{
+    width: 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
+    background: #f1f0ee;
+
+}
+
+aside > .upper{
+    display: flex;
+    flex-direction: column;
+}
+aside > .down > button{
+    width: 100%;
+    border: none;
+    background: #e1e1e1;
+    outline: none;
+    padding: 12px;
+}
+aside > .down > button:hover{
+    background: #fff;
+    cursor: pointer;
+}
+
+aside > .upper > .actions{}
+aside > .upper > .actions > li{
+    /*margin: 20px;*/
+    box-sizing: border-box;
+}
+aside > .upper > .actions > li > button{
+    width: 100%;
+    border: none;
+    background: #f1f0ee;
+    outline: none;
+    padding: 12px;
+}
+aside > .upper > .actions > li > button:hover{
+    background: #fff;
+    cursor: pointer;
+}
+
+aside > .upper > p{
+    color: #777;
+    padding: 20px 15px;
+    font-size: 18px;
+}

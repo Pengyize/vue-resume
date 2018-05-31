@@ -9,30 +9,10 @@ button{
 div[v-cloak]{display: none}
 
 @media (min-width: 500px) {
-    .page > div{height: 100vh; overflow: hidden;
+    .page > .container{height: 100vh; overflow: hidden;
         display: flex}
 }
-.page{}
-.page > div > aside{
-    width: 100px;
-    border-right: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    flex-shrink: 0;
-    box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
-}
-.page > div > aside > .upper > .actions > li{
-    margin: 20px;
-}
-.page > div > aside > .upper{
-    display: flex;
-    flex-direction: column;
-}
-.page > div > aside > .down{
-    padding: 20px 0;
-}
+
 .page > div > main{
     flex-grow: 1;
     overflow: auto;
@@ -41,4 +21,3 @@ div[v-cloak]{display: none}
     padding: 3px 6px;
 }
 
-.exitPreview{position: fixed;top: 20px;left: 20px;}

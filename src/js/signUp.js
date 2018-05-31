@@ -19,14 +19,11 @@ window.SignUp ={
             user.signUp().then((user) =>{
                 alert('注册成功')
                 user = user.toJSON()
-                this.$emit('signUp')
+                this.$emit('signup',user)
             }, function (error) {
                 alert(error.rawMessage)
             });
         },
-        onClickLogin(){
-            this.$emit('goToLogin')
-        }
     },
     template:`
     <div class="signUp" v-cloak>
