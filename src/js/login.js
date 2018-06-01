@@ -27,7 +27,7 @@ window.Login ={
     template: `
     <div class="login" v-cloak>
     <form class="form-horizontal form" @submit.prevent="onLogin">
-        <h2>简历编辑器</h2>
+        <h2>登录</h2>
         <div class="form-group">
             <!--<label for="inputEmail3" class="col-sm-2 control-label" >邮箱</label>-->
             <div class="col-sm-12">
@@ -42,7 +42,7 @@ window.Login ={
         </div>
   
         <div class="form-group">
-         <div class="col-sm-offset-2 col-sm-10">
+         <div class="col-sm-offset-2 col-sm-10 signButton">
             <button type="submit" class="btn btn-default loginButton">登陆</button>
             <button type="submit" class="btn btn-default"><router-link to="/signUp">去注册</router-link></button>
          </div>
