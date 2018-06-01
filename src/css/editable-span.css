@@ -1,4 +1,12 @@
-.editableSpan{position: relative}
-.editableSpan button{display: none; position: absolute; top:0;left: 100%;}
-.editableSpan:hover button{display: inline-block; z-index: 1}
+.editableSpan{  position: relative}
+.editableSpan > span{height: 10px; line-height: 10px; }
+.editableSpan .fullName{margin-right: 5px;font-size: 20px;}
+.editableSpan .glyphicon{ transition: all 0.3s; display: none; position: absolute; top: 30%;left: 100%; color: #444}
+.description > span > .glyphicon{ transition: all 0.3s; display: none; position: absolute; top: 89%;right: 0; color: #444}
+.editableSpan .glyphicon:hover{cursor: pointer; color: #111; transform: scale(1.2)}
+.editableSpan:hover .glyphicon{ display: inline-block; z-index: 1}
 
+
+body.dark .editableSpan .glyphicon:hover{color: white;}
+body.dark .editableSpan .glyphicon{color: #ddd;}
+body.dark input{color: #333;}

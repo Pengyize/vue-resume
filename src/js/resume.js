@@ -13,7 +13,7 @@ Vue.component('resume',{
         },
         addProject(){
             this.resume.projects.push(
-                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
+                {name: '请填写项目名称', link: 'http://pengyize.top',  description: '请详细描述'}
             );
         },
         removeProject(index){
@@ -42,70 +42,115 @@ Vue.component('resume',{
         },
     },
     template:`
+<div class="container-fluid">
     <div class="resume">
             <section class="profile">
-                <h1>
-                    <editable-span :disabled="mode === 'preview'"  :value="displayresume.name" @edit="onEdit('name',$event)"></editable-span>
-                </h1>
+            <div class="row">
+                <div class="col-md-12" >
+                   <h1><editable-span :disabled="mode === 'preview'"  :value="displayresume.name" @edit="onEdit('name',$event)"></editable-span></h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12" >
+                    <p class="info">应聘职位：<editable-span :disabled="mode === 'preview'"  :value="displayresume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span></p>
+                </div>
+            </div>
 
-                <p>应聘职位：<editable-span :disabled="mode === 'preview'"  :value="displayresume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span></p>
-                
+            <div class="row">
+               <div class="col-md-12 ">
                 <p class="profile">
-                    年龄：<editable-span :disabled="mode === 'preview'"  :value="displayresume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
-                    |
-                    性别：<editable-span :disabled="mode === 'preview'"  :value="displayresume.gender" @edit="onEdit('gender',$event)"></editable-span>
-                    |
-                    邮箱：<editable-span :disabled="mode === 'preview'"  :value="displayresume.email" @edit="onEdit('email',$event)"></editable-span>
-                    |
-                    手机：<editable-span :disabled="mode === 'preview'"  :value="displayresume.phone" @edit="onEdit('phone',$event)"></editable-span>
+                    年龄：<editable-span class="info" :disabled="mode === 'preview'"  :value="displayresume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
+                    <span class="split">|</span>
+                    性别：<editable-span class="info" :disabled="mode === 'preview'"  :value="displayresume.gender" @edit="onEdit('gender',$event)"></editable-span>
+                    <span class="split">|</span>
+                    邮箱：<editable-span class="info" :disabled="mode === 'preview'"  :value="displayresume.email" @edit="onEdit('email',$event)"></editable-span>
+                    <span class="split">|</span>
+                    手机：<editable-span class="info" :disabled="mode === 'preview'"  :value="displayresume.phone" @edit="onEdit('phone',$event)"></editable-span>
                 </p>
+                </div>
+            </div>
             </section>
+            
             <section class="skills">
+            <div class="row">
+            <div class="col-md-12" >
                 <h2>技能</h2>
-                <ul>
-                    <li v-for="skill,index in displayresume.skills">
-                        <editable-span :disabled="mode === 'preview'"  :value="skill.name" class="name" @edit="onEdit('skills[' + index + '].name',$event)"></editable-span>
-                        <div class="description">
-                            <editable-span :disabled="mode === 'preview'"  :value="skill.description" @edit="onEdit('skills[' + index + '].description',$event)"></editable-span>
-                        </div>
-                        <span class="remove" v-if="index >= 4 && mode === 'edit'" @click="removeSkill(index)">x</span>
-                    </li>
-                    <li v-if="mode === 'edit'" class="add">
-                        <span @click="addSkill">添加</span>
-                    </li>
-                </ul>
+            </div>
+            </div>
+            
+            <ul>
+                <div class="row">
+                <li v-for="skill,index in displayresume.skills">
+                
+                <div class="col-md-6" >
+                <div class="wrapper">
+                    <editable-span :disabled="mode === 'preview'"  :value="skill.name" class="name" @edit="onEdit('skills[' + index + '].name',$event)"></editable-span>
+                    
+                    <div class="description">
+                        <editable-span :disabled="mode === 'preview'"  :value="skill.description" @edit="onEdit('skills[' + index + '].description',$event)"></editable-span>
+                    </div>
+                    
+                    <span class="remove" v-if="index >= 4 && mode === 'edit'" @click="removeSkill(index)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" ></span>
+                    </span>
+                </div>
+                </div>
+
+                </li>
+                
+                <div class="col-md-12">
+                <li v-if="mode === 'edit'" class="add">
+                    <span @click="addSkill" class="btn btn-primary">添加技能</span>
+                </li>
+                </div>
+                </div>
+            </ul>
             </section>
+            
             <section class="projects">
+            <div class="row">
+                <div class="col-md-12" >
                 <h2>项目经历</h2>
-                <ol>
-                    <li v-for="project,index in displayresume.projects">
+                </div>
+            </div>
+            
+            <ol>
+            <div class="row">
+                <li v-for="project,index in displayresume.projects">
+                    <div class="col-md-6">
+                    <div class="wrapper">
                         <header>
                             <div class="start">
-                                <h3 class="name">
+                                <h3 class="name" style="margin-top: 0;">
                                     <editable-span :disabled="mode === 'preview'"  :value="project.name" @edit="onEdit('projects[' + index + '].name', $event)"></editable-span>
                                 </h3>
                                 <span class="link">
                                     <editable-span :disabled="mode === 'preview'"  :value="project.link" @edit="onEdit('projects[' + index + '].link', $event)"></editable-span>
-
-                                </span>
-                            </div>
-                            <div class="end">
-                                <span class="keywords">
-                                    <editable-span :disabled="mode === 'preview'" :value="project.keywords" @edit="onEdit('projects[' + index + '].keywords', $event)"></editable-span>
                                 </span>
                             </div>
                         </header>
                         <p class="description">
                             <editable-span :disabled="mode === 'preview'" :value="project.description" @edit="onEdit('projects[' + index + '].description', $event)"></editable-span>
                         </p>
-                        <span v-if="index >=2 && mode === 'edit'" class="remove" @click="removeProject">x</span>
-                    </li>
+                        <span v-if="index >=2 && mode === 'edit'" class="remove" @click="removeProject(index)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true" ></span>
+                        </span>
+                    </div>
+                    </div>
+                </li>
+                    
+                <div class="col-md-12" >
                     <li v-if="mode === 'edit'" class="add">
-                        <span @click="addProject">添加</span>
+                     <span @click="addProject" class="btn btn-primary">添加项目</span>
                     </li>
-                </ol>
+                </div>
+            </div>
+            </ol>
+            
             </section>
         </div>
+</div>
     `
 })
 

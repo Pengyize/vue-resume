@@ -1,13 +1,42 @@
-body.default > .page > div > main > .resume{margin: 0 auto;max-width: 800px;}
-body.default > .page > div > main > .resume > section{margin: 50px 0;}
-body.default > .page > div > main > .resume > section > h1{text-align: center;margin: 20px;}
-body.default > .page > div > main > .resume > section > h2{text-align: center;margin: 20px;}
-body.default > .page > div > main > .resume .profile{text-align: center;}
-body.default > .page > div > main > .resume .skills > ul{display: flex;flex-wrap: wrap;justify-content: space-between;}
-body.default > .page > div > main > .resume .skills > ul > li{width: 48%;border: 1px solid #ddd;padding: 10px;margin-top: 10px;position: relative;}
-body.default > .page > div > main > .resume .skills > ul > li > .remove{position: absolute;top: 0;right: 0;}
-body.default > .page > div > main > .resume .projects > ol{}
-body.default > .page > div > main > .resume .projects > ol > li {margin: 30px 0;border: 1px solid #ddd;padding: 10px;}
-body.default > .page > div > main > .resume .projects header{display: flex;align-items: center;justify-content: space-between;margin-bottom: 5px;}
-body.default > .page > div > main > .resume .projects header .name{margin-right: 1em;}
-body.default > .page > div > main > .resume .projects header .start{display: flex;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume{margin: 0 auto;max-width: 1200px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > section{margin: 50px 0;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > section > .row > div > h1{text-align: center;margin: 20px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > section > .row > div > h2{text-align: center;margin: 44px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .profile{text-align: center;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .profile > .split{display: inline-block; margin-right: 25px; margin-left: 15px}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .profile > .row > div{margin: 10px 0;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .profile > .row > div > h1 > span > .fullName{font-size: 36px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .profile > .row > div > p{font-family: Kai, serif}
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .skills > ul{}*/
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div{padding: 20px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >.wrapper,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div >.wrapper{border: 1px solid #ddd; transition: all .3s;box-shadow:-1px 1px 4px 1px rgba(0,0,0,.1);padding: 20px 30px;position: relative;}
+
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >.wrapper > header > .start > .name > span > .fullName{font-weight: bold;}*/
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >.wrapper > header > .start > .name > span > .fullName{font-size: 22px !important;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >.wrapper > header > .start > .name,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div >.wrapper > .name {font-weight: bold;border-bottom: 1px solid #ddd;padding-bottom: 5px;margin-bottom: 10px;width: 90%;display: inline-block;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills input,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects input {width: 90%;border: none}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div >.wrapper > .description > span{padding: 5px;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >.wrapper:hover,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div >.wrapper:hover{box-shadow:-1px 1px 4px 1px rgba(0,0,0,.3);}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div > .wrapper > .remove,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div > .wrapper > .remove{transition: all .4s; position: absolute;top: 6px;right: 6px; }
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div > .wrapper > header > .start > .name input{width: 50%;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div > .wrapper > header > .start > .link{position: absolute;top: 16px;right: 44px; color: #007bff;}
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .projects > ol > .row > li > div >  .wrapper > .remove:hover,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > li > div > .wrapper > .remove:hover{transform: scale(1.3);}
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol{}*/
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > li >div{margin: 30px 0;border: 1px solid #ddd;padding: 10px;position: relative}*/
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > div{margin: 30px 0;}*/
+
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > div > .add,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > div > .add{text-align: center; }
+
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > div > .add > span,
+body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume > .skills > ul > .row > div > .add > span{margin-top:20px; font-size: 16px; width: 20%; height: 48px; line-height: 35px;}
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > li > div > header{display: flex;align-items: center;justify-content: space-between;margin-bottom: 5px;}*/
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > li > div > header > .start > .name{margin-right: 1em;}*/
+/*body.default > .page > .container-fluid > .row > div > main > .container-fluid > .resume .projects > ol > .row > li > div > header .start{display: flex;}*/

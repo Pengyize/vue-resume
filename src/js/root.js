@@ -24,14 +24,14 @@ const root = new Vue({
                 phone: '13767676767',
                 email: 'example@mail.com',
                 skills: [
-                    {name: '请填写技能名称', description: '请填写描述'},
-                    {name: '请填写技能名称', description: '请填写描述'},
-                    {name: '请填写技能名称', description: '请填写描述'},
-                    {name: '请填写技能名称', description: '请填写描述'}
+                    {name: 'HTML5 & CSS3', description: '了解 HTML5 语义化结构......'},
+                    {name: '移动端页面', description: '会使用 REM、vw/vh、FastClick 等技术......'},
+                    {name: 'jQuery', description: '熟悉 jQuery 的常用API......'},
+                    {name: 'JavaScript', description: '在不使用框架的情况下，能够使用原生 JS......'}
                 ],
                 projects: [
-                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
+                    {name: '键盘导航页', link: 'http://pengyize.top', description: '利用原生 JavaScript 面，还可以自定义每个键绑定的导航网址。'},
+                    {name: '皮卡丘', link: 'http://pengyize.top', description: '利用原生 JavaScript 动态向 &ltstyle&gt 标签添加样式以及 &ltpre&gt 标签添加文本。'}
                 ]
             },
             previewResume: {},
@@ -40,17 +40,7 @@ const root = new Vue({
         }
     },
     methods: {
-        onShare(){
-            if(this.hasLogin()){
-                if(this.shareVisible === false){
-                    this.shareVisible = true
-                }else{
-                    this.shareVisible = false
-                }
-            }else{
-                alert('请先登陆')
-            }
-        },
+
         hasLogin(){
             return !!this.currentUser.objectId
         },
@@ -159,4 +149,5 @@ if(matches){
     root.getResume({objectId: userId}).then((resume)=>{
         root.previewResume = resume
     });
+    $('#main')[0].className = 'col-md-12';
 }

@@ -5,19 +5,43 @@ ul,ol{list-style: none}
 button{
     font-size: inherit;
 }
-
+body{
+    font-size: 22px;
+}
 div[v-cloak]{display: none}
+.btn-primary {
+    color: #fff;
+    background-color: #444 !important;
+    border-color: #333 !important;
+    transition: all 0.3s;
+}
+.btn-primary:hover,
+.btn-primary:active
+{
+    background-color: #333 !important;
+    border-color: #222 !important;
+}
+.btn-primary:focus{
+    outline: none !important;
 
-@media (min-width: 500px) {
-    .page > .container{height: 100vh; overflow: hidden;
-        display: flex}
 }
-
-.page > div > main{
-    flex-grow: 1;
-    overflow: auto;
+.info{
+    margin-right: 10px;
+    font-size: 22px;
+    font-family: Kai, serif;
 }
-.button{
-    padding: 3px 6px;
+/*@media (min-width: 500px) {*/
+    /*.page > .container{height: 100vh; overflow: hidden;*/
+        /*display: flex}*/
+/*}*/
+.container-fluid > .row > div{
+    padding: 0;
 }
+/*.page > div > main{*/
+    /*flex-grow: 1;*/
+    /*overflow: auto;*/
+/*}*/
+/*.button{*/
+    /*padding: 3px 6px;*/
+/*}*/
 

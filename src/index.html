@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>简历编辑器</title>
-    <link rel="stylesheet" href="../vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/themes/default.css">
     <link rel="stylesheet" href="css/themes/dark.css">
@@ -19,9 +19,9 @@
 <body  class="default">
 
 <div class="page" id="root">
-    <router-view :logoutvisible="logoutVisible" @skin="changeSkin" @share="onShare" :displayresume="displayResume" :mode="mode" @login="onLogin" :resume="resume" @signup="onSignUp" @save="onClickSave"  @logout="onLogOut"></router-view>
+    <router-view :logoutvisible="logoutVisible" @skin="changeSkin"  :displayresume="displayResume" :mode="mode" @login="onLogin" :resume="resume" @signup="onSignUp" @save="onClickSave"  @logout="onLogOut"></router-view>
 
-    <share :sharelink="shareLink" v-show="shareVisible"></share>
+    <share  :sharelink="shareLink" v-show="shareVisible"></share>
 
     <skin-picker v-show="skinPickerVisible"></skin-picker>
 </div>
@@ -35,7 +35,7 @@
 <script src="../vendors/vue.min.js"></script>
 <script src="../vendors/vue-router.min.js"></script>
 <script src="../vendors/jquery.min.js"></script>
-<script src="../vendors/bootstrap.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <!--模块化-->
 <script src="js/editable-span.js"></script>

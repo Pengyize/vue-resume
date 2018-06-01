@@ -1,15 +1,85 @@
 .signUp{
-    position: fixed;
-    min-width: 300px;
-    min-height: 400px;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    background: #ddd;
+    /*min-height: 100px;*/
+    /*transform: translate(-50%,-50%);*/
+
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: stretch;*/
+    background: url("../image/background.jpg") center no-repeat;
+    background-size: cover;
+    /*border: 1px solid red;*/
+    height: 100vh;
 }
 .signUp > .form{
-    width: 100%;
+    /*width: 100%;*/
+    min-width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -230px;
+    margin-left: -300px;
+    /*background: #fff;*/
+    padding: 20px 20px;
+    height: 400px;
+    color: #fff;
 }
+.signUp > .form > h2{
+    text-align: center;
+    padding-bottom: 35px;
+    font-size: 54px;
+}
+
+.signUp > .form > .form-group{
+    padding: 8px;
+}
+
+.signUp > .form > .form-group{
+    display: flex;
+}
+
+.signUp > .form > .form-group > div{
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+.signUp > .form > .form-group > div > button{
+    /*width: 100%;*/
+    /*background: #333;*/
+    /*color: #ddd;*/
+    /*border: none;*/
+    margin: 5px;
+}
+.signUp > .form > .form-group > div > button:nth-child(1){
+    color: #fff;
+    background-color: #28a745;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    border: none;
+
+}
+.signUp > .form > .form-group > div > button:nth-child(1):hover{
+    background-color: #36af52;
+    background-image: linear-gradient(-180deg, #2fcb53 0%, #269f42 90%);
+    background-position: -.5em;
+    border-color: rgba(27,31,35,0.5);
+}
+.signUp > .form > .form-group > div > button:nth-child(1):focus{
+    outline: none;
+}
+
+
+/*.signUp{*/
+    /*position: fixed;*/
+    /*min-width: 300px;*/
+    /*min-height: 400px;*/
+    /*transform: translate(-50%,-50%);*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: stretch;*/
+    /*background: #ddd;*/
+/*}*/
+/*.signUp > .form{*/
+    /*width: 100%;*/
+/*}*/

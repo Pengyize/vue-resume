@@ -1,4 +1,4 @@
-.page > .container > aside{
+.page > .container-fluid > .row > div > aside{
     display: none;
 }
 
@@ -6,9 +6,9 @@
     padding: 20px;
 }
 
-.skills > ul > li > .remove,
-.projects > ol > li > .remove,
-.projects > ol > .add,
-.skills > ul > .add{
+.projects > ol > .row > li > div > .wrapper > .remove,
+.skills > ul > .row > li > div > .wrapper > .remove,
+.skills > ul > .row > div > .add,
+.projects > ol > .row > div > .add{
     display: none;
 }

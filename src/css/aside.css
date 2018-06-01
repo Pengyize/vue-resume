@@ -1,51 +1,69 @@
 
 aside{
-    width: 184px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
     flex-shrink: 0;
     box-shadow: 0 0 1px 0 rgba(0,0,0,.2);
-    background: #f1f0ee;
-
+    background: #444;
+    height: 100vh;
+    position: fixed;
+    width: 203px;
 }
 
 aside > .upper{
     display: flex;
     flex-direction: column;
 }
+aside > .down{
+    justify-content: flex-end;
+}
 aside > .down > button{
     width: 100%;
     border: none;
-    background: #e1e1e1;
+    background: #444;
     outline: none;
     padding: 12px;
+    color: white;
+    transition: all 0.6s;
+    height: 72px;
 }
 aside > .down > button:hover{
     background: #fff;
     cursor: pointer;
+    color: #111;
 }
-
+aside > .down > button > span{
+    width: 25px;
+}
 aside > .upper > .actions{}
-aside > .upper > .actions > li{
-    /*margin: 20px;*/
-    box-sizing: border-box;
+
+aside > .upper > .actions > li > button > span{
+    /*color: white;*/
+    width: 25px;
 }
 aside > .upper > .actions > li > button{
     width: 100%;
+    height: 72px;
     border: none;
-    background: #f1f0ee;
+    background: #444;
     outline: none;
     padding: 12px;
+    color: #fff;
+    transition: all 0.6s;
+    font-size: 16px;
 }
+
 aside > .upper > .actions > li > button:hover{
-    background: #fff;
+    border-radius: 8px;
+    background: #fff !important;
     cursor: pointer;
+    color: #111;
 }
 
 aside > .upper > p{
-    color: #777;
+    color: white;
     padding: 20px 15px;
     font-size: 18px;
 }
