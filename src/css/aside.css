@@ -19,20 +19,29 @@ aside > .upper{
 aside > .down{
     justify-content: flex-end;
 }
+.signOutButton{
+    background: #666 !important;
+    color: #eee !important;
+}
+.signOutButton:hover{
+    background: #fff !important;
+    color: black !important;
+}
 aside > .down > button{
     width: 100%;
     border: none;
-    background: #444;
     outline: none;
     padding: 12px;
-    color: white;
     transition: all 0.6s;
     height: 72px;
+    background: #444;
+    color: #fff;
 }
 aside > .down > button:hover{
     background: #fff;
-    cursor: pointer;
     color: #111;
+
+    cursor: pointer;
 }
 aside > .down > button > span{
     width: 25px;

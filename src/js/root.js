@@ -40,7 +40,6 @@ const root = new Vue({
         }
     },
     methods: {
-
         hasLogin(){
             return !!this.currentUser.objectId
         },
@@ -54,11 +53,11 @@ const root = new Vue({
             });
         },
         onLogin(user){
-            console.log('user',user)
             this.currentUser.objectId = user.objectId;
             this.currentUser.email = user.email;
             this.shareLink = location.origin + location.pathname + '?user_id=' +this.currentUser.objectId
             this.getResume(this.currentUser).then((resume)=>{this.resume = resume})
+            alert('登陆成功')
             this.$router.push('/')
             this.logoutVisible = true;
         },

@@ -40,7 +40,7 @@ Vue.component('app-aside',{
             </ul>
         </div>
         <div class="down">
-            <button class="button" @click="$emit('logout')" v-show="logoutvisible">
+            <button class="button signOutButton" @click="$emit('logout')" v-show="logoutvisible">
                <span class="glyphicon glyphicon-log-out" aria-hidden="true" ></span>
                注销
             </button>

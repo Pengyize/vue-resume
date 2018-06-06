@@ -24,7 +24,6 @@ Vue.component('resume',{
             let regex = /\[(\d+)\]/g
             key = key.replace(regex, (match, number)=> `.${number}`)
             let keys = key.split('.');
-            console.log('this.props',this.resume)
             let result = this.resume;
             for(let i=0;i<keys.length;i++){
                 if(i === keys.length -1){

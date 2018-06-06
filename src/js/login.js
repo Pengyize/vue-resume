@@ -48,24 +48,6 @@ window.Login ={
          </div>
         </div>
     </form>
-    
-    
-        <!--<form action="" class="form" @submit.prevent="onLogin">-->
-            <!--<h2>登陆</h2>-->
-            <!--<router-link to="/">关闭</router-link>-->
-            <!--<div class="row">-->
-                <!--<label for="">邮箱</label>-->
-                <!--<input type="text" v-model="login.email">-->
-            <!--</div>-->
-            <!--<div class="row">-->
-                <!--<label for="">密码</label>-->
-                <!--<input type="password" v-model="login.password">-->
-            <!--</div>-->
-            <!--<div class="actions">-->
-                <!--<button type="submit">提交</button>-->
-                <!--<router-link to="/signUp">注册</router-link>-->
-            <!--</div>-->
-        <!--</form>-->
     </div>
 `
 }

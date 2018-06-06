@@ -32,8 +32,6 @@ window.App = {
             window.print()
         },
     },
-
-
 }
 
 

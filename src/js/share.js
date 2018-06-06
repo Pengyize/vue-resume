@@ -16,6 +16,5 @@ Vue.component('share',{
         </div>
     </div>
 </div>
-    
 `
 })
